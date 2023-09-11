@@ -27,13 +27,13 @@ public class tinkoff2 {
 
     //создаем пароль 
     public static String newPassword(Integer x) {
-        Scanner in1 = new Scanner(System.in);
+        Scanner in2 = new Scanner(System.in);
         
-        String password = in1.nextLine();
+        String password = in2.nextLine();
         if(password.length()!=x){
             return null;
         }
-        in1.close();
+        in2.close();
         return password;
       
     }
