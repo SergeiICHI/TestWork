@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class tinkoff2 {
-    // С помощью этой функции выводим МИНИМАЛЬНО возможное оставшееся кол символов 
+    // С помощью этой функции выводим МИНИМАЛЬНО возможное оставшееся кол символов.
     public static Integer deleteValue(String x, Integer y){
         Set<Character> chars = new HashSet<>();
 
@@ -54,6 +54,7 @@ public class tinkoff2 {
         System.out.println(minValue);
 
         in.close();
+
         
 
     }
