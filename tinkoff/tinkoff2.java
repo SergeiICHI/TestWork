@@ -8,20 +8,38 @@
 
 package tinkoff;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Set;
+
 
 public class tinkoff2 {
     // С помощью этой функции выводим МИНИМАЛЬНО возможное оставшееся кол символов.
     public static Integer deleteValue(String x, Integer y){
-        Set<Character> chars = new HashSet<>();
+        HashMap<Character, Integer> chars = new HashMap<>();
 
         for(int i = 0; i < x.length(); i++){
-            chars.add(x.charAt(i));
+            if (chars.containsKey(x.charAt(i))){
+                chars.put(x.charAt(i), chars.get(x.charAt(i)) +1);
+            }
+            else{
+                chars.put(x.charAt(i), 1);
+            }
         }
-        return chars.size() - y;
 
+
+        ArrayList<Integer> values  = new ArrayList<>(chars.values());
+        Collections.sort(values);
+
+        Integer count = values.size();
+        for(int i = 0; i< values.size();i++){
+            if(y - values.get(i) >= 0){
+                y = y - values.get(i);
+                count -=1;
+            }
+        }
+        return count;
     }
 
 
@@ -30,9 +48,9 @@ public class tinkoff2 {
         Scanner in2 = new Scanner(System.in);
         
         String password = in2.nextLine();
-        if(password.length()!=x){
-            return null;
-        }
+        // if(password.length()!=x){
+        //     return null;
+        // }
         in2.close();
         return password;
       
@@ -54,8 +72,6 @@ public class tinkoff2 {
         System.out.println(minValue);
 
         in.close();
-
-        
 
     }
 }
